@@ -7,7 +7,6 @@ fi
 
 var=$(find . -name $@)
 arrIN=(${var// / })
-echo $arrIn
 
 n=${#arrIN[@]}
 
@@ -16,11 +15,11 @@ if [ '$n' = '2' ]		# caso singolo file trovato
 		echo cane
 		rm -f $var;
 else
-	
+	var=""	
 	for el in ${arrIN[@]}; do
+		var+=$el"\n"
 		if [ -z $(echo $el | grep 'bck') ]
 			then
-				echo "cane il ritorno"
 				echo $el;
 		fi
 	done
@@ -28,12 +27,5 @@ else
 	
 	read name
 
-	for el in ${arrIN[@]}; do
-		path=$(echo $el | grep "\<$name\>") 
-		if [ -n "$path" ]
-			then
-				
-				rm -f "$path";
-		fi
-	done
+	rm -f $(echo -e $var | grep "\<$name\>")
 fi

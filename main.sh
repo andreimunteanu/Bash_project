@@ -1,8 +1,8 @@
 #!/bin/bash
 
-INIT_REPO=../progetto/init_repo.sh
-COMMIT=../progetto/commit.sh
-REMOVE=../progetto/remove.sh
+INIT_REPO=./init_repo.sh #../progetto/init_repo.sh
+COMMIT=./commit.sh #../progetto/commit.sh
+REMOVE=./remove.sh #../progetto/remove.sh
 REVERT=;
 STATUS=;
 FILE_SEARCH=;
