@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ $# != 1 ]
 	then
-		echo "Utilizzo corretto: init_repo <repo>"
+		echo "Utilizzo corretto: <repo>"
 		
 fi
 if [ ! -d ./$@ ]
