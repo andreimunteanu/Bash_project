@@ -27,5 +27,5 @@ else
 	
 	read name
 
-	rm -f $(echo -e $var | grep "\<$name\>")
+	rm -f $(echo -e $var | grep -w "\<$name\>")
 fi
