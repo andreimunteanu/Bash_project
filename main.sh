@@ -3,9 +3,9 @@
 INIT_REPO=./init_repo.sh #../progetto/init_repo.sh
 COMMIT=./commit.sh #../progetto/commit.sh
 REMOVE=./remove.sh #../progetto/remove.sh
-REVERT=;
+REVERT=./revert.sh
 STATUS=./status.sh
-FILE_SEARCH=;
+FILE_SEARCH=./file_search.sh
 
 init_repo(){
 echo "Inserisci <repo>"
@@ -25,10 +25,22 @@ read lista_parametri
 $REMOVE $lista_parametri
 }
 
+revert(){
+echo "Inserisci nome <repo>"
+read lista_parametri
+$REVERT $lista_parametri
+}
+
 status(){
 echo "Inserisci nome <repo>"
 read lista_parametri
 $STATUS $lista_parametri
+}
+
+file_search(){
+echo "Inserisci pattern"
+read lista_parametri
+$FILE_SEARCH $lista_parametri
 }
 
 stampa_menu(){
@@ -53,9 +65,9 @@ while [ "$scelta" != "0" ]
 		1) init_repo;;
 		2) commit;;
 		3) remove;;
-		4) $REVERT $lista_parametri;;
+		4) revert;;
 		5) status;;
-		6) $FILE_SEARCH $lista_parametri;;
+		6) file_search;;
 		*) echo "ERRORE: Valore inserito non valido."	
 		esac
 

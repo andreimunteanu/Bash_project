@@ -12,7 +12,6 @@ n=${#arrIN[@]}
 
 if [ '$n' = '2' ]		# caso singolo file trovato
 	then
-		echo cane
 		rm -f $var;
 else
 	var=""	
