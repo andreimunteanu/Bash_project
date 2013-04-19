@@ -1,7 +1,11 @@
 #!/bin/bash
 read -p "Inserisci nome <repo> " repo
 
-#controlo se esiste la repo
+if [ ! -d ./$1 ]
+	then
+		echo  "<repo> "$1" non esistente "
+		exit;
+fi
 
 cd $repo
 file_list=$(find . -type f)

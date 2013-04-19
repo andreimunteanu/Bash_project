@@ -1,9 +1,17 @@
 #!/bin/bash
-if [ $# != 1 ]
+if [ $# -ne 1 ]
 	then
 		echo "Utilizzo corretto: <repo>"
+		exit;
 		
 fi
+
+if [ -d ./$1 ]
+	then
+		echo  "<repo> "$1" esiste già "
+		exit;
+fi
+
 if [ ! -d ./$@ ]
 	then
 		mkdir $@ 

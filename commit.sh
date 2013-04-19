@@ -1,10 +1,14 @@
 #!/bin/bash
-if [ $# != 1 ]
+if [ $# -ne 1 ]
 	then 
 		echo "utilizzo errato: <repo>"
 		exit;
 fi
-# controllo se esiste repo
+if [ ! -d ./$1 ]
+	then
+		echo  "<repo> "$1" non esistente "
+		exit;
+fi
 
 source=$@"/"
 destination="."$@".bck/"
