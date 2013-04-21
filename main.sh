@@ -1,8 +1,8 @@
 #!/bin/bash
 
-INIT_REPO=./init_repo.sh #../progetto/init_repo.sh
-COMMIT=./commit.sh #../progetto/commit.sh
-REMOVE=./remove.sh #../progetto/remove.sh
+INIT_REPO=./init_repo.sh 
+COMMIT=./commit.sh 
+REMOVE=./remove.sh 
 REVERT=./revert.sh
 STATUS=./status.sh
 FILE_SEARCH=./file_search.sh
@@ -72,4 +72,3 @@ while [ "$scelta" != "0" ]
 		esac
 
 done
-

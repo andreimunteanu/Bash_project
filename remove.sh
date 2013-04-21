@@ -5,23 +5,18 @@ if [ $# -ne 1 ]
 		exit;
 fi
 
-var=$(find . -name $@)
-arrIN=(${var// / }) #versione decente da cercare o che minchia vuol dire
+file_list=$(find . -name $@)
+file_list=${file_list//"./"/"\n./"}
 
-n=${#arrIN[@]}
+n=$(echo -e $file_list | grep -wc "$@")
 
-if [ $n -eq 2 ]		# caso singolo file trovato
+if [ $n -eq 2 ] || [ $n -eq 1 ]		# caso singolo file trovato
 	then
-		rm -f $var;
+		echo ciao grazie
+		rm -f $file_list;
+
 else
-	var=""	
-	for el in ${arrIN[@]}; do
-		var+=$el"\n"
-		if [ -z $(echo $el | grep 'bck') ]
-			then
-				echo $el;
-		fi
-	done
+	echo -e $file_list | grep -v "bck"
 	echo "A causa di multiplo ritrovamento Inserisci nome repo"
 	
 	read name
@@ -30,6 +25,6 @@ else
 			echo  "<repo> "$name" non esistente "
 			exit;
 	fi
-
-	rm -f $(echo -e $var | grep -w "\<$name\>") # da controllare la rindondanza di -w e \< \>
+	
+	rm -f $(echo -e $files | grep -w "$name") # da controllare la rindondanza di -w e \< \>
 fi
