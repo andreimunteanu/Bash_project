@@ -5,18 +5,18 @@ if [ $# -ne 1 ]
 		exit;
 fi
 
-var=$(find . -name $@)
-arrIN=(${var// / }) #versione decente da cercare o che minchia vuol dire
+file_list=($(find . -name $@))
 
-n=${#arrIN[@]}
+n=${#file_list[@]} 
 
-if [ $n -eq 2 ]		# caso singolo file trovato
+if [ $n -eq 2 ] || [ $n -eq 1 ]		# caso singolo file trovato
 	then
-		rm -f $var;
+		rm -f $file_list;
+
 else
-	var=""	
-	for el in ${arrIN[@]}; do
-		var+=$el"\n"
+	files=""	
+	for el in ${file_list[@]}; do     
+		files+=$el"\n"
 		if [ -z $(echo $el | grep 'bck') ]
 			then
 				echo $el;
@@ -31,5 +31,5 @@ else
 			exit;
 	fi
 
-	rm -f $(echo -e $var | grep -w "\<$name\>") # da controllare la rindondanza di -w e \< \>
+	rm -f $(echo -e $files | grep -w "\<$name\>") # da controllare la rindondanza di -w e \< \>
 fi
