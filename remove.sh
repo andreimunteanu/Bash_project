@@ -6,7 +6,7 @@ then
 fi
                                         # cerca tutti i file file_name nella directory
 file_list=$(find . -name $@)            # corrente e nelle sue sotto directory 
-file_list=${file_list//"./"/"\n./"}     # salva i risultati per righe distinte
+file_list=${file_list//"./"/"\n./"}     # salva i risultati su righe distinte
 
 n=$(echo -e $file_list | grep -wc "$@") # salva il numero di risultati
 
