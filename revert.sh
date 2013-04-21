@@ -25,7 +25,7 @@ else
 	                                       # nella variabile file_list
 	n=$(echo -e $file_list | grep -wc "$2")# salva quanti <file> sono stati trovati  
                                                # in .<repo>.bck	
-	if [ $n -eq 0 ]                        # se non sono stati trovati file: esci
+	if [ $n -eq 0 ]                        # se non sono stati trovati file: esce
 	then
 	    echo "file "$2" non trovato."
 	    exit;
