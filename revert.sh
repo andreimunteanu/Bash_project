@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ $# -eq 0 ] || [ $# -gt 2 ]              # controlla il numero di parametri passati
 then
-    echo "Errore, utilizzo: <repo> [file]  " # esci se non corrsiponde
+    echo "Errore, utilizzo: <repo> [file]  " # esce se non corrsiponde
     exit;
 		
 else
