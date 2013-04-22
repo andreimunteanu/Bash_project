@@ -13,7 +13,7 @@ n=$(echo -e $file_list | grep -wc "$@") # salva il numero di risultati
 if [ $n -eq 2 ] || [ $n -eq 1 ]		# caso singolo file trovato
 then                                    # in una sola repo con possibile
     echo ciao grazie                    # copia di backup
-    rm -f $file_list;                   # rimuove il file e relativa copia(se esiste)
+    rm -f $(echo -e file_list);         # rimuove il file e relativa copia(se esiste)
     
 else                                    # se più repo contengono il file file_name
     echo -e $file_list | grep -v "bck"                  # stampa a video le righe delle repo che 
@@ -27,5 +27,5 @@ else                                    # se più repo contengono il file file_n
 	exit;
     fi
     
-    rm -f $(echo -e $files | grep -w "$name") #rimuove i/il file dalla directory name
+    rm -f $(echo -e $file_list | grep -w "$name") #rimuove i/il file dalla directory name
 fi
