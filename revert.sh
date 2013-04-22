@@ -1,11 +1,7 @@
 #!/bin/bash
 if [ $# -eq 0 ] || [ $# -gt 2 ] # controlla il numero di parametri passati
 then
-<<<<<<< HEAD
     echo "Errore, utilizzo: <repo> [file] " # esce se non corrisponde
-=======
-    echo "Errore, utilizzo: <repo> [file]  " # esce se non corrsiponde
->>>>>>> 74190fa9889443f600601c0c58be435d33d2967a
     exit;
     
 else
@@ -20,7 +16,6 @@ else
 	cp -rf . ../$@
 	cd ..;
 	
-<<<<<<< HEAD
     elif [ $# -eq 2 ] # caso: due parametri
     then
 	cd ".$1.bck" # cambia directory di lavoro: .<repo>.bck
@@ -30,17 +25,6 @@ else
 	n=$(echo -e $file_list | grep -wc "$2") # salva quanti <file> sono stati trovati
                                                # in .<repo>.bck
 	if [ $n -eq 0 ] # se non sono stati trovati file: esce
-=======
-    elif [ $# -eq 2 ]                          # caso: due parametri
-    then	
-	cd ".$1.bck"                           # cambia directory di lavoro: .<repo>.bck
-	file_list=$(find . -name $2)           # cerca tutti i <file> in .<rep>.bck
-	file_list=${file_list//"./"/"\n./"}    # salva i risultati su righe distinte 
-	                                       # nella variabile file_list
-	n=$(echo -e $file_list | grep -wc "$2")# salva quanti <file> sono stati trovati  
-                                               # in .<repo>.bck	
-	if [ $n -eq 0 ]                        # se non sono stati trovati file: esce
->>>>>>> 74190fa9889443f600601c0c58be435d33d2967a
 	then
 	    echo "file "$2" non trovato."
 	    exit;
