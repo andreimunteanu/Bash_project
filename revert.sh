@@ -15,20 +15,20 @@ else
 	cd ".$@.bck"
 	cp -rf . ../$@
 	cd ..;
-	
+
     elif [ $# -eq 2 ] # caso: due parametri
     then
 	cd ".$1.bck" # cambia directory di lavoro: .<repo>.bck
 	file_list=$(find . -name $2) # cerca tutti i <file> in .<rep>.bck
 	file_list=${file_list//"./"/"\n./"} # salva i risultati su righe distinte
-# nella variabile file_list
+					    # nella variabile file_list
 	n=$(echo -e $file_list | grep -wc "$2") # salva quanti <file> sono stati trovati
-                                               # in .<repo>.bck
+                                                # in .<repo>.bck
 	if [ $n -eq 0 ] # se non sono stati trovati file: esce
 	then
 	    echo "file "$2" non trovato."
 	    exit;
-	    
+
 	elif [ $n -eq 1 ] # caso singolo file trovato
 	then # copia il file da .<repo>.bck in <repo>
 	    rsync -R $(echo -e $file_list) ../$1
