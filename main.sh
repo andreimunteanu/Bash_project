@@ -3,7 +3,7 @@ bold=`tput bold` # per formattare il testo in corsivo
 normal=`tput sgr0` # resetta gli attributi del testo
 
 # lista degli script bash componenti il progetto:
-INIT_REPO=./init_repo.sh 
+INIT_REPO=./init_repo.sh
 COMMIT=./commit.sh
 REMOVE=./remove.sh
 REVERT=./revert.sh
@@ -52,21 +52,20 @@ stampa_menu(){
     echo -e "\n"
     
 # '\E[37;44m' = font bianco su sfondo blue, mentre ${bold} e ${normal} richiamano i parametri inizializzati a inizio script
-    echo -e '\E[37;44m'" ${bold} Inserisci l'operazione da effettuare:${normal} "
-    
-    echo -e '\E[37;44m'"\t${bold}<1>${normal} Init-repo"
-    echo -e '\E[37;44m'"\t${bold}<2>${normal} Commit"
-    echo -e '\E[37;44m'"\t${bold}<3>${normal} Remove"
-    echo -e '\E[37;44m'"\t${bold}<4>${normal} Revert"
-    echo -e '\E[37;44m'"\t${bold}<5>${normal} Status"
-    echo -e '\E[37;44m'"\t${bold}<6>${normal} File_search\n\n"
+    echo -e " ${bold} Inserisci l'operazione da effettuare:${normal} "  
+    echo -e "\t"'\E[37;44m'"${bold}<1>${normal} Init-repo"
+    echo -e "\t"'\E[37;44m'"${bold}<2>${normal} Commit"
+    echo -e "\t"'\E[37;44m'"${bold}<3>${normal} Remove"
+    echo -e "\t"'\E[37;44m'"${bold}<4>${normal} Revert"
+    echo -e "\t"'\E[37;44m'"${bold}<5>${normal} Status"
+    echo -e "\t"'\E[37;44m'"${bold}<6>${normal} File_search\n\n"
 }
 
 lista_parametri="" # stringa utilizzata nelle varie funzioni
 scelta=1 # scelta inizializzato ad 1 per entrare nel while
 clear # pulisce il terminale prima di stampare il menu per la prima volta
 while [ "$scelta" != "0" ] # 0 = per uscire
-do
+    do
     stampa_menu
     read -p "> " scelta # legge la scelta dell'utente dopo aver stampato il prompt >
     case $scelta in
@@ -79,5 +78,4 @@ do
 	6) file_search;;
 	*) echo "ERRORE: Valore inserito non valido." # in caso l'utente non avesse inserito un numero da 0 a 6
     esac
-
 done
